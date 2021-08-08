@@ -13,6 +13,7 @@ public class PlayerLogic : MonoBehaviour
     public bool playerAlive = true; //Is the player alive (health greater than 0)
     public bool isGameRunning = false; //Is the game running
 
+    public int playerLivesLeft = 3;
     public float playerHealth = 100f; //The players current health
     public float movementSpeed = 10f; //The players current speed
 
