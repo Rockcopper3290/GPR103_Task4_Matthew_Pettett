@@ -41,8 +41,14 @@ TagManager:
   - name: Background
     uniqueID: 1990247857
     locked: 0
+  - name: Just Behind Player
+    uniqueID: 519257523
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Just Infront of Player
+    uniqueID: 2859923897
     locked: 0
   - name: Foreground
     uniqueID: 604354267
