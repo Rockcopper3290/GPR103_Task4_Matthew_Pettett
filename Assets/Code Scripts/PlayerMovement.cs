@@ -8,11 +8,25 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
+    public int playerHealth = 100;
+
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            playerHealth -= 20;
+
+            //Destroy(other.gameObject); // <- kills frog
+            
+        }
+    }
 
 
     // Start is called before the first frame update

@@ -12,6 +12,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
+	//[SerializeField] private float hurtForce = 10f;							
+
 	[SerializeField] private float m_delayGroundCheck = 0.25f;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -51,6 +53,11 @@ public class CharacterController2D : MonoBehaviour
 		{
 			timeBeforeGroundCheck -= Time.deltaTime;
 		}
+
+		//if (state != State.hurt)
+		//{
+		//	Move();
+		//}
 	}
 
 	private void FixedUpdate()
