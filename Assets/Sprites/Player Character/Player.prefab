@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 339183675516156219}
   - component: {fileID: 339183675516156166}
   - component: {fileID: 339183675516156167}
+  - component: {fileID: 8303138944128903137}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 339183674040353127}
   m_CeilingCheck: {fileID: 339183674440550336}
   m_CrouchDisableCollider: {fileID: 339183675516156217}
+  m_delayGroundCheck: 0.25
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -280,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 339183675516156216}
   animator: {fileID: 339183675516156167}
+  playerHealth: 100
   runSpeed: 40
 --- !u!95 &339183675516156167
 Animator:
@@ -300,3 +303,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8303138944128903137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339183675516156223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee81bd6567dab446b46ec4f82beea0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 339183675516156218}

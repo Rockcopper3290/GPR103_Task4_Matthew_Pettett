@@ -26,6 +26,14 @@ public class PlayerMovement : MonoBehaviour
             //Destroy(other.gameObject); // <- kills frog
             
         }
+
+        else if (other.gameObject.tag == "Enemy2")
+        {
+            playerHealth -= 50;
+
+            //Destroy(other.gameObject); // <- kills frog
+
+        }
     }
 
 
@@ -58,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
+
+        
 
     }
 
