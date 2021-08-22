@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     public int playerHealth = 100;
+    public int currentHealth;
+    public Health_Bar healthBar;
 
     public float runSpeed = 40f;
 
@@ -21,18 +24,37 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            playerHealth -= 20;
+            playerHealth -= 10;
+            currentHealth = playerHealth;
+            healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
 
-            //Destroy(other.gameObject); // <- kills frog
-            
         }
 
         else if (other.gameObject.tag == "Enemy2")
         {
-            playerHealth -= 50;
+            playerHealth -= 20;
+            currentHealth = playerHealth;
+            healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
 
-            //Destroy(other.gameObject); // <- kills frog
-
+        //boss Dammage
+        else if (other.gameObject.CompareTag("Boss"))
+        {
+            playerHealth -= 30;
+            currentHealth = playerHealth;
+            healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
@@ -40,7 +62,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = playerHealth;
+        healthBar.SetMaxHealth(playerHealth);
     }
 
     // Update is called once per frame
@@ -67,9 +90,27 @@ public class PlayerMovement : MonoBehaviour
             crouch = false;
         }
 
-        
-
     }
+
+    public void TakeDamage(int damage)
+    {
+        playerHealth -= damage;
+        currentHealth = playerHealth;
+
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        
+    }
+
+    void Die()
+    {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+   
 
     public void OnLanding()
     {

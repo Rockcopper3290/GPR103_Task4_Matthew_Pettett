@@ -126,4 +126,6 @@ public class FrogController : MonoBehaviour
             anim.SetInteger("state", (int)currentAnim);
         }
     }
+
+    
 }
